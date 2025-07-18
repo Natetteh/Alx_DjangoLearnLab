@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import permission_required
 from .models import Book
-from .forms import BookForm  # Assuming you have created a form for Book model
+from .forms import BookForm
 
 @permission_required('relationship_app.can_add_book', raise_exception=True)
 def add_book(request):
@@ -9,7 +9,7 @@ def add_book(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('list_books')  # Assuming you have a list_books view
+            return redirect('list_books')
     else:
         form = BookForm()
     return render(request, 'relationship_app/add_book.html', {'form': form})
