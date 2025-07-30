@@ -1,7 +1,8 @@
 from django import forms
-from .models import Book
+from django.contrib.auth.forms import UserCreationForm
+from .models import CustomUser
 
-class BookForm(forms.ModelForm):
+class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model = Book
-        fields = '__all__'
+        model = CustomUser
+        fields = ('username', 'email', 'date_of_birth', 'profile_photo')
