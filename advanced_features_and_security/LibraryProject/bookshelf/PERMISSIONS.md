@@ -1,4 +1,3 @@
-Django Project
 Permissions and Groups
 -----------------------
 - Groups: Admins, Editors, Viewers
